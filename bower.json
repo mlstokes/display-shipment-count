@@ -1,0 +1,22 @@
+{
+  "name": "display-shipment-count",
+  "description": "",
+  "main": "app.js",
+  "authors": [
+    "Macon Stokes"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/mlstokes/display-shipment-count",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "chart.js": "chartjs#^2.6.0"
+  }
+}
