@@ -131,11 +131,43 @@
 					<p>Javascript</p>
 					<br>
 					<script>
-            var doughnutData = [
-              { value: 70, color: '#74cfae'	},
-              { value: 30, color: '#3c3c3c' }
-            ];
-							var myDoughnut = new Chart(document.getElementById("javascript").getContext("2d")).doughnut(doughnutData);
+            var doughnutData = {
+              datasets: [{
+                data: [
+                  70,
+                  30,
+                ],
+                backgroundColor: [
+                  '#74cfae',
+                  '#3c3c3c',
+                ],
+                label: 'Dataset 1'
+            }],
+            labels: [
+                'Red',
+                'Orange'
+              ]
+        };
+
+            var doughnutConfig = {
+                type: 'doughnut',
+                data: doughnutData,
+                options: {
+                  responsive: true,
+                  legend: {position: 'top',},
+                  title: {display: true, text: 'TEST CHART'},
+                  animation: {animationScale: true, animateRotate: true}
+                }
+            };
+
+            console.log(doughnutConfig);
+
+            var myDoughnut = new Chart(document.getElementById('javascript').getContext('2d'), doughnutConfig);
+
+
+            console.log(myDoughnut);
+
+				//			var myDoughnutOld = new Chart(document.getElementById("javascript").getContext("2d")).doughnut(doughnutData);
 					</script>
 				</div>
 				<div class="col-lg-3 mt">
