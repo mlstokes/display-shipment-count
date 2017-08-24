@@ -9,17 +9,23 @@
 
     <title>Dash</title>
 
-    <!-- External CSS -->
-    <link href="/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-    <link href="/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="/css/main.css" rel="stylesheet">
-
-    <!-- External JS -->
-    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <!-- css/js injection of bower dependencies via gulp via wiredep -->
+    <!--bower:css-->
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css" />
+    <!--endbower-->
+    <!--bower:js-->
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="/lib/chart.js/dist/Chart.js"></script>
+    <!--endbower-->
 
+    <!-- css/js injection of local dependencies via gulp via gulp-inject -->
+    <!--inject:css-->
+    <link rel="stylesheet" href="/css/main.css">
+    <!--endinject-->
+    <!--inject:js-->
+    <!--endinject-->
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -220,10 +226,5 @@
 			</div>
 		</div>
 	</div>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
   </body>
 </html>
