@@ -133,20 +133,11 @@
 					<script>
             var doughnutData = {
               datasets: [{
-                data: [
-                  70,
-                  30,
-                ],
-                backgroundColor: [
-                  '#74cfae',
-                  '#3c3c3c',
-                ],
+                data: [70, 30],
+                backgroundColor: ['#74cfae', '#3c3c3c'],
                 label: 'Dataset 1'
             }],
-            labels: [
-                'Red',
-                'Orange'
-              ]
+            labels: ['Red', 'Orange']
         };
 
             var doughnutConfig = {
@@ -160,12 +151,12 @@
                 }
             };
 
-            console.log(doughnutConfig);
+        //    console.log(doughnutConfig);
 
             var myDoughnut = new Chart(document.getElementById('javascript').getContext('2d'), doughnutConfig);
 
 
-            console.log(myDoughnut);
+        //    console.log(myDoughnut);
 
 				//			var myDoughnutOld = new Chart(document.getElementById("javascript").getContext("2d")).doughnut(doughnutData);
 					</script>
@@ -175,17 +166,27 @@
 					<p>Bootstrap</p>
 					<br>
 					<script>
-						var doughnutData = [
-								{
-									value: 90,
-									color:"#74cfae"
-								},
-								{
-									value : 10,
-									color : "#3c3c3c"
-								}
-							];
-							var myDoughnut = new Chart(document.getElementById("bootstrap").getContext("2d")).doughnut(doughnutData);
+          var doughnutData = {
+            datasets: [{
+              data: [70, 30],
+              backgroundColor: ['#74cfae', '#3c3c3c'],
+              label: 'Dataset 1'
+          }],
+          labels: ['Red', 'Orange']
+      };
+
+          var doughnutConfig = {
+              type: 'doughnut',
+              data: doughnutData,
+              options: {
+                responsive: true,
+                legend: {position: 'top',},
+                title: {display: true, text: 'TEST CHART'},
+                animation: {animationScale: true, animateRotate: true}
+              }
+          };
+
+          var myDoughnut = new Chart(document.getElementById('bootstrap').getContext('2d'), doughnutConfig);
 					</script>
 				</div>
 				<div class="col-lg-3 mt">
@@ -193,17 +194,27 @@
 					<p>Wordpress</p>
 					<br>
 					<script>
-						var doughnutData = [
-								{
-									value: 65,
-									color:"#74cfae"
-								},
-								{
-									value : 35,
-									color : "#3c3c3c"
-								}
-							];
-							var myDoughnut = new Chart(document.getElementById("wordpress").getContext("2d")).doughnut(doughnutData);
+          var doughnutData = {
+            datasets: [{
+              data: [70, 30],
+              backgroundColor: ['#74cfae', '#3c3c3c'],
+              label: 'Dataset 1'
+          }],
+          labels: ['Red', 'Orange']
+      };
+
+          var doughnutConfig = {
+              type: 'doughnut',
+              data: doughnutData,
+              options: {
+                responsive: true,
+                legend: {position: 'top',},
+                title: {display: true, text: 'TEST CHART'},
+                animation: {animationScale: true, animateRotate: true}
+              }
+          };
+
+          var myDoughnut = new Chart(document.getElementById('wordpress').getContext('2d'), doughnutConfig);
 					</script>
 				</div>
 				<div class="col-lg-3 mt">
@@ -211,18 +222,28 @@
 					<p>Photoshop</p>
 					<br>
 					<script>
-						var doughnutData = [
-								{
-									value: 50,
-									color:"#74cfae"
-								},
-								{
-									value : 50,
-									color : "#3c3c3c"
-								}
-							];
-							var myDoughnut = new Chart(document.getElementById("photoshop").getContext("2d")).doughnut(doughnutData);
-					</script>
+          var doughnutData = {
+            datasets: [{
+              data: [70, 30],
+              backgroundColor: ['#74cfae', '#3c3c3c'],
+              label: 'Dataset 1'
+          }],
+          labels: ['Red', 'Orange']
+      };
+
+          var doughnutConfig = {
+              type: 'doughnut',
+              data: doughnutData,
+              options: {
+                responsive: true,
+                legend: {position: 'top',},
+                title: {display: true, text: 'TEST CHART'},
+                animation: {animationScale: true, animateRotate: true}
+              }
+          };
+
+          var myDoughnut = new Chart(document.getElementById('photoshop').getContext('2d'), doughnutConfig);
+						</script>
 				</div>
 			</div><!-- /row -->
 		</div><!-- /container -->
