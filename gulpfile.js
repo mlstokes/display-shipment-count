@@ -2,8 +2,15 @@ var gulp = require('gulp');
 var jshint = require('gulp-jshint');
 var jscs = require('gulp-jscs');
 var nodemon = require('gulp-nodemon');
+var shell = require('gulp-shell');
 
 var jsFiles = ['*.js', 'src/**/*.js'];
+
+var ltString = 'lt --port ' + 3000 + ' --subdomain ampmlstokes';
+
+gulp.task('lt', shell.task([
+  ltString
+]));
 
 gulp.task('style', function () {
     return gulp.src(jsFiles)
