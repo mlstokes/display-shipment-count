@@ -6,10 +6,10 @@ var shell = require('gulp-shell');
 
 var jsFiles = ['*.js', 'src/**/*.js'];
 
-var ltString = 'lt --port ' + 3000 + ' --subdomain ampmlstokes';
+var localtunnelCommand = 'lt --port ' + 3000 + ' --subdomain ampmlstokes';
 
 gulp.task('lt', shell.task([
-  ltString
+  localtunnelCommand
 ]));
 
 gulp.task('style', function () {
