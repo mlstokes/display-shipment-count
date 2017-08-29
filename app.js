@@ -1,17 +1,15 @@
 var express = require('express');
-
 var app = express();
-
 var _ = require('underscore');
 
 //if PORT exists in the environment then use it, if not, use 5000
 var port = process.env.PORT || 5000;
 
-var shipmentsRouter = require('./src/routes/shipmentsRouter');
-var ordersRouter = require('./src/routes/ordersRouter');
-
 var navData = require('./src/data/navData.json');
 var activityData = require('./src/data/activityData.json');
+
+var shipmentsRouter = require('./src/routes/shipmentsRouter')(navData, activityData);
+var ordersRouter = require('./src/routes/ordersRouter')(navData, activityData);
 
 app.use(express.static('public'));
 app.set('views', './src/views');
@@ -33,7 +31,7 @@ app.listen(port, function (err) {
     console.log('running server on port ' + port);
 });
 
-//testing stuff
+//testing stuff//
 
 //var underscoreWhere = _.where(activityDataSummary, {Label: 'Shipments'});
 
