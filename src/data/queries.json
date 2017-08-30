@@ -1,0 +1,6 @@
+{
+  "summaryQuery":
+  "select 'Shipments' as 'Link', 'Shipments' as 'Label', count(distinct(sh.INTERNAL_SHIPMENT_NUM)) [Data] from shipment_header sh (nolock) where sh.TRAILING_STS <= 300",
+  "shipmentsQuery":
+  "select case sh.trailing_sts when 100 then '1 Prewave' when 200 then '1 Prewave' when 300 then '2 Picking' when 301 then '2 Picking' when 401 then '3 Packing' when 700 then '4 Shipped' when 900 then '4 Shipped' else '5 unknown' end as Status, count(distinct(sh.internal_shipment_num)) as Activities from shipment_header sh (nolock) where ( cast(sh.planned_ship_date as date) <= cast(getdate() as date) and sh.trailing_sts < 900 ) or ( sh.trailing_sts >= 900 and cast(sh.ACTUAL_SHIP_DATE_TIME as date) = cast(getdate() as date) ) group by case sh.trailing_sts when 100 then '1 Prewave' when 200 then '1 Prewave' when 300 then '2 Picking' when 301 then '2 Picking' when 401 then '3 Packing' when 700 then '4 Shipped' when 900 then '4 Shipped' else '5 unknown' end order by Status"
+}

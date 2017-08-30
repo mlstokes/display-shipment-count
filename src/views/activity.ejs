@@ -59,20 +59,21 @@
     </div>
 
 
-    <% for (var i=0; i<activityDataSummary.length;i++){%>
+    <% for (var i=0; i<activityData.length;i++){%>
       <div id='hello'>
     	    <div class="container">
     	    	<div class="row">
     	    		<div class="col-lg-8 col-lg-offset-2 centered">
-    	    			<h1><%=activityDataSummary[i].Data%></h1>
-    	    			<h2><%=activityDataSummary[i].Label%></h2>
+    	    			<h1><%=activityData[i].Activities%></h1>
+    	    			<h2><%=activityData[i].Status%></h2>
     	    		</div><!-- /col-lg-8 -->
     	    	</div><!-- /row -->
     	    </div> <!-- /container -->
-    	</div><!-- /<%=activityDataSummary[i].Label%> -->
+    	</div><!-- /<%=activityData[i].Status%> -->
 
     <%}%>
 
+<!--
 	<div id="green">
 		<div class="container">
 			<div class="row">
@@ -87,7 +88,9 @@
 			</div>
 		</div>
 	</div>
+-->
 
+<!--
 	<div class="container">
 		<div class="row centered mt grid">
 			<h3>OUR LATEST WORK</h3>
@@ -126,7 +129,7 @@
 			</div>
 		</div>
 	</div>
-
+-->
 
 	<div id="skills">
 		<div class="container">
@@ -139,11 +142,11 @@
 					<script>
             var doughnutData = {
               datasets: [{
-                data: [70, 30],
+                data: <%=activityData.Activities%>,
                 backgroundColor: ['#74cfae', '#3c3c3c'],
                 label: 'Dataset 1'
             }],
-            labels: ['Red', 'Orange']
+            labels: <%=activityData.Status%>
         };
 
             var doughnutConfig = {
