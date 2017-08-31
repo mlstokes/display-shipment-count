@@ -20,6 +20,9 @@
     <script src="/lib/chart.js/dist/Chart.js"></script>
     <!--endbower-->
 
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script> -->
+    <script src="/lib/underscore/underscore.js"></script>
+
     <!-- css/js injection of local dependencies via gulp via gulp-inject -->
     <!--inject:css-->
     <link rel="stylesheet" href="/css/main.css">
@@ -137,16 +140,32 @@
 				<h3>OUR SKILLS</h3>
 				<div class="col-lg-3 mt">
 					<canvas id="javascript" height="130" width="130"></canvas>
-					<p>Javascript</p>
+					<p>Shipments</p>
 					<br>
 					<script>
+          var testDataVar = <%=activityData[1].Activities%>;  // this validates that shipmentsRouter.js is properly passing data in activityData that it received from app.js
+          console.log('activityData[1].Activities: ' + testDataVar);
+          var testSet = [{'Label': 'In Pool', 'Activities': 554},
+                         {'Label': 'Picking', 'Activities': 78},
+                         {'Label': 'Shipped', 'Activities': 234}];  // this is an Array
+          console.log(testSet);
+          console.log('testSet[1].Activities: ' + testSet[1].Activities);
+            var dataTestSet = _.map(testSet, _.property('Activities'));
+          console.log(dataTestSet);
+
+          var activityData = <%-JSON.stringify(activityData)%>;
+          var activities = _.map(activityData, _.property('Activities'));
+          var labels = _.map(activityData, _.property('Status'));
+          console.log(activities);
+
             var doughnutData = {
               datasets: [{
-                data: <%=activityData.Activities%>,
-                backgroundColor: ['#74cfae', '#3c3c3c'],
+                data: activities,
+                backgroundColor: ['#3c3c3c', 'yellow', 'blue', '#74cfae'],
                 label: 'Dataset 1'
             }],
-            labels: <%=activityData.Status%>
+            labels: labels
+//            labels: <%=activityData.Status%>
         };
 
             var doughnutConfig = {
@@ -155,7 +174,7 @@
                 options: {
                   responsive: true,
                   legend: {position: 'top',},
-                  title: {display: true, text: 'TEST CHART'},
+                  title: {display: false, text: 'TEST CHART'},
                   animation: {animationScale: true, animateRotate: true}
                 }
             };

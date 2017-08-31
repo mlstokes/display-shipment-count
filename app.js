@@ -29,13 +29,13 @@ app.use('/Orders', ordersRouter);
 
 app.get('/', function (req, res) {
 
-    console.log(queries.summaryQuery);
+    //console.log(queries.summaryQuery);
     var summaryData = new sql.Request();
 
     var queryData = summaryData.query(queries.summaryQuery,
       function (err, recordset) {
             var queryData = recordset.recordset;
-            console.log(queryData);
+            //console.log(queryData);
             res.render('index', {
                                     title: 'Amplifier Dash',
                                     nav: navData,
@@ -56,8 +56,8 @@ app.listen(port, function (err) {
 //console.log('activityDataSummary:');
 //console.log(activityDataSummary);
 
-console.log('activityData:');
-console.log(activityData);
+//console.log('activityData:');
+//console.log(activityData);
 
-console.log('navDataJson:');
-console.log(navData);
+//console.log('navDataJson:');
+//console.log(navData);

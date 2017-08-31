@@ -34,6 +34,7 @@
         "css/font-awesome.min.css",
         "scss/font-awesome.scss"
       ]
-    }
+    },
+    "underscore": {"main": "/underscore.js"}
   }
 }

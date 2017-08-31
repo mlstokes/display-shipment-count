@@ -36,7 +36,7 @@ gulp.task('inject', function () {
     };
 
     return gulp.src('./src/views/*.html')
-      .pipe(wiredep(options))
+      .pipe(wiredep(options)) //this is for the bower inject
       .pipe(inject(injectSrc, injectOptions))
       .pipe(gulp.dest('./src/views'));
 });
