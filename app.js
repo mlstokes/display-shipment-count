@@ -2,12 +2,16 @@ var express = require('express');
 var app = express();
 var _ = require('underscore');
 var sql = require('mssql');
-var mssqlConfig = require('./src/data/mssqlConfig.json');
+var mssqlWMSConfig = require('./src/data/mssqlWMSConfig.json');
 var queries = require('./src/data/queries.json');
 
-sql.connect(mssqlConfig, function (err) {
-    if (err) { console.log(err); } else { console.log('mssql connected'); }
+sql.connect(mssqlWMSConfig, function (err) {
+    if (err) { console.log(err); } else { console.log('Connected to WMS'); }
 });
+
+// sql.connect(mssqlBFConfig, function (err) {
+//     if (err) { console.log(err); } else { console.log('Connected to BF'); }
+// });
 
 //if PORT exists in the environment then use it, if not, use 5000
 var port = process.env.PORT || 5000;
@@ -16,7 +20,7 @@ var navData = require('./src/data/navData.json');
 var activityData = require('./src/data/activityData.json');
 
 var shipmentsRouter = require('./src/routes/shipmentsRouter')(navData, activityData, queries);
-var ordersRouter = require('./src/routes/ordersRouter')(navData, activityData);
+var ordersRouter = require('./src/routes/ordersRouter')(navData, activityData, queries);
 
 app.use(express.static('public'));
 app.set('views', './src/views');
@@ -35,7 +39,7 @@ app.get('/', function (req, res) {
     var queryData = summaryData.query(queries.summaryQuery,
       function (err, recordset) {
             var queryData = recordset.recordset;
-            //console.log(queryData);
+            console.log(queryData);
             res.render('index', {
                                     title: 'Amplifier Dash',
                                     nav: navData,

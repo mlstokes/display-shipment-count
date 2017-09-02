@@ -72,7 +72,7 @@
     	    		</div><!-- /col-lg-8 -->
     	    	</div><!-- /row -->
     	    </div> <!-- /container -->
-    	</div><!-- /<%=activityData[i].Status%> -->
+    	</div>    <!-- /<%=activityData[i].Status%> -->
 
     <%}%>
 
@@ -137,26 +137,29 @@
 	<div id="skills">
 		<div class="container">
 			<div class="row centered">
-				<h3>OUR SKILLS</h3>
+				<h3></h3>
 				<div class="col-lg-3 mt">
 					<canvas id="javascript" height="130" width="130"></canvas>
-					<p>Shipments</p>
+					<p><%=title%></p>
 					<br>
 					<script>
-          var testDataVar = <%=activityData[1].Activities%>;  // this validates that shipmentsRouter.js is properly passing data in activityData that it received from app.js
+          console.log('hello from activity.ejs');
+
+          var testDataVar = <%=activityData[0].Activities%>;  // this validates that xxxxxxxRouter.js is properly passing data in activityData that it received from app.js
           console.log('activityData[1].Activities: ' + testDataVar);
-          var testSet = [{'Label': 'In Pool', 'Activities': 554},
-                         {'Label': 'Picking', 'Activities': 78},
-                         {'Label': 'Shipped', 'Activities': 234}];  // this is an Array
-          console.log(testSet);
-          console.log('testSet[1].Activities: ' + testSet[1].Activities);
-            var dataTestSet = _.map(testSet, _.property('Activities'));
-          console.log(dataTestSet);
+
+          // var testSet = [{'Label': 'In Pool', 'Activities': 554},
+          //                {'Label': 'Picking', 'Activities': 78},
+          //                {'Label': 'Shipped', 'Activities': 234}];  // this is an Array
+          // //console.log(testSet);
+          // console.log('testSet[1].Activities: ' + testSet[1].Activities);
+          //           var dataTestSet = _.map(testSet, _.property('Activities'));
+          // console.log(dataTestSet);
 
           var activityData = <%-JSON.stringify(activityData)%>;
           var activities = _.map(activityData, _.property('Activities'));
           var labels = _.map(activityData, _.property('Status'));
-          console.log(activities);
+          console.log(activities);  // validating that activityData is being properly prepared for doughnut
 
             var doughnutData = {
               datasets: [{
@@ -167,6 +170,7 @@
             labels: labels
 //            labels: <%=activityData.Status%>
         };
+
 
             var doughnutConfig = {
                 type: 'doughnut',
@@ -182,6 +186,7 @@
             var myDoughnut = new Chart(document.getElementById('javascript').getContext('2d'), doughnutConfig);
 					</script>
 				</div>
+<!--
 				<div class="col-lg-3 mt">
 					<canvas id="bootstrap" height="130" width="130"></canvas>
 					<p>Bootstrap</p>
@@ -238,6 +243,8 @@
           var myDoughnut = new Chart(document.getElementById('wordpress').getContext('2d'), doughnutConfig);
 					</script>
 				</div>
+-->
+<!--
 				<div class="col-lg-3 mt">
 					<canvas id="photoshop" height="130" width="130"></canvas>
 					<p>Photoshop</p>
@@ -267,6 +274,7 @@
 						</script>
 				</div>
 			</div><!-- /row -->
+-->
 		</div><!-- /container -->
 	</div><!-- /skills -->
 
