@@ -22,7 +22,7 @@ var router = function (navData, activityData, queries) {
                                                 activityDataSummary: _.where(activityData, {Label: 'Shipments'}),
                                                 activityData: shipmentsData
                                             });
-                      });
+                    });
 
     });
 
