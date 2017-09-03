@@ -11,7 +11,7 @@ var router = function (navData, activityData, queries) {
         request.query(queries.shipmentsQuery,
                       function(err, recordset) {
                         var shipmentsData = recordset.recordset;
-                        console.log('shipmentsData:')
+                        console.log('shipmentsData:');
                         console.log(shipmentsData);
                         console.log('map(shipmentsData, property(\'Activities\')');
                         console.log(_.map(shipmentsData, _.property('Activities')));
